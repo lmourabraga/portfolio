@@ -22,17 +22,17 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
           </p>
         </div>
 
-        <div className="relative pl-14 sm:pl-24">
-          {/* Centralized Timeline Line */}
-          <div className="absolute left-[28px] sm:left-[48px] top-4 bottom-4 w-px bg-slate-800" />
+        <div className="relative pl-24 sm:pl-32">
+          {/* Centralized Timeline Line passing through the exact center of 80px wide badges (80/2 = 40px) */}
+          <div className="absolute left-[40px] top-4 bottom-4 w-px bg-slate-800" />
 
           <div className="space-y-12">
             {profileData.experiences.map((exp, index) => {
               const startYear = exp.period.match(/\d{4}/)?.[0] || exp.period;
               return (
                 <div key={exp.id} className="relative group">
-                  {/* Timeline Year Badge with pulsing border for current role */}
-                  <div className={`absolute -left-14 sm:-left-24 top-6 px-3 py-1.5 rounded-lg bg-slate-950 border text-xs font-bold flex items-center justify-center shadow-xl transition-colors z-10 ${
+                  {/* Timeline Year Badge with top-0 aligning with card top border */}
+                  <div className={`absolute -left-24 sm:-left-32 top-0 w-20 py-2 rounded-xl bg-slate-950 border text-xs font-bold flex items-center justify-center shadow-xl transition-colors z-10 ${
                     index === 0 
                       ? 'border-emerald-500 text-emerald-300 animate-pulse shadow-emerald-500/20' 
                       : 'border-slate-700 text-brand-400 group-hover:border-brand-500'
