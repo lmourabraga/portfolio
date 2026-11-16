@@ -7,6 +7,7 @@ import { ProjectsGrid } from './components/ProjectsGrid';
 import { ArticlesSection } from './components/ArticlesSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
+import { CosmicBackground } from './components/CosmicBackground';
 import { updateSeoMeta } from './utils/seo';
 import type { Language } from './data/translations';
 
@@ -22,9 +23,10 @@ export function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-brand-500 selection:text-white relative">
+      <CosmicBackground />
       <Navbar currentLang={lang} onLanguageChange={setLang} />
-      <main>
+      <main className="relative z-10">
         <Hero lang={lang} />
         <ExperienceTimeline lang={lang} />
         <SkillsMatrix lang={lang} />

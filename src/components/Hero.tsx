@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, Sparkles } from 'lucide-react';
+import { ArrowRight, Download } from 'lucide-react';
 import { profileData } from '../data/profile';
 import type { Language } from '../data/translations';
 import { translations } from '../data/translations';
@@ -12,7 +12,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
   const t = translations[lang].hero;
 
   return (
-    <section id="about" className="relative pt-20 pb-28 overflow-hidden bg-slate-950">
+    <section id="about" className="relative pt-20 pb-28 overflow-hidden bg-transparent">
       {/* Background glow effects */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute top-1/3 right-10 w-72 h-72 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
@@ -32,12 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-brand-400 text-xs sm:text-sm font-medium mb-6">
-            <Sparkles className="w-4 h-4" />
-            <span>{t.badge}</span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
+          <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 mt-4">
             {t.greeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-200">{profileData.name}</span>
           </h1>
 
@@ -47,18 +42,18 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="#contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all shadow-lg shadow-brand-600/20"
-            >
-              <span>{t.getInTouch}</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
               href="#experience"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-medium transition-all"
             >
               <Download className="w-4 h-4 text-brand-400" />
               <span>{t.exploreCareer}</span>
+            </a>
+            <a
+              href="#contact"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all shadow-lg shadow-brand-600/20"
+            >
+              <span>{t.getInTouch}</span>
+              <ArrowRight className="w-4 h-4" />
             </a>
           </div>
 

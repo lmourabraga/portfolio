@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { profileData } from '../data/profile';
 import type { Language } from '../data/translations';
 import { translations } from '../data/translations';
@@ -12,7 +12,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
   const t = translations[lang].experience;
 
   return (
-    <section id="experience" className="py-24 bg-slate-900/50 border-t border-slate-800">
+    <section id="experience" className="py-24 bg-slate-900/30 border-t border-slate-800/50 backdrop-blur-[2px]">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -22,49 +22,58 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
           </p>
         </div>
 
-        <div className="relative border-l border-slate-800 ml-4 sm:ml-8 space-y-12">
-          {profileData.experiences.map((exp) => (
-            <div key={exp.id} className="relative pl-6 sm:pl-8 group">
-              {/* Timeline dot */}
-              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-500 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                <Briefcase className="w-3.5 h-3.5" />
-              </div>
-
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition-all shadow-xl">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                    <p className="text-brand-400 font-medium text-lg">{exp.company}</p>
-                  </div>
-                  <div className="flex flex-col sm:items-end gap-1 text-xs sm:text-sm text-slate-400">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-brand-500" />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5 text-brand-500" />
-                      <span>{exp.location}</span>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="text-slate-300 mb-6 leading-relaxed">
-                  {exp.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {exp.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700/60"
-                    >
-                      {skill}
+        <div className="relative border-l border-slate-800 ml-6 sm:ml-12 space-y-12">
+          {profileData.experiences.map((exp, index) => {
+            const startYear = exp.period.match(/\d{4}/)?.[0] || exp.period;
+            return (
+              <div key={exp.id} className="relative pl-8 sm:pl-10 group">
+                {/* Timeline Year Badge & Pulse for Current Position */}
+                <div className="absolute -left-[45px] sm:-left-[49px] top-1.5 px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-700 text-xs font-bold text-brand-400 flex items-center gap-1.5 shadow-xl group-hover:border-brand-500 transition-colors">
+                  {index === 0 && (
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                     </span>
-                  ))}
+                  )}
+                  <span>{startYear}</span>
+                </div>
+
+                <div className="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 hover:border-slate-700 transition-all shadow-xl backdrop-blur-sm">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+                      <p className="text-brand-400 font-medium text-lg">{exp.company}</p>
+                    </div>
+                    <div className="flex flex-col sm:items-end gap-1 text-xs sm:text-sm text-slate-400">
+                      <div className="flex items-center gap-1">
+                        <Calendar className="w-3.5 h-3.5 text-brand-500" />
+                        <span>{exp.period}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <MapPin className="w-3.5 h-3.5 text-brand-500" />
+                        <span>{exp.location}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-slate-300 mb-6 leading-relaxed">
+                    {exp.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="text-xs px-3 py-1 rounded-full bg-slate-800 text-slate-300 border border-slate-700/60"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, Code2, Mail, Globe } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import type { Language } from '../data/translations';
@@ -11,21 +11,79 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('about');
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef<number | null>(null);
   const t = translations[currentLang].nav;
 
-  const navLinks = [
-    { name: t.about, href: '#about' },
-    { name: t.experience, href: '#experience' },
-    { name: t.skills, href: '#skills' },
-    { name: t.projects, href: '#projects' },
-    { name: t.articles, href: '#articles' },
-    { name: t.contact, href: '#contact' },
-  ];
+  const navLinks = React.useMemo(() => [
+    { name: t.about, href: '#about', id: 'about' },
+    { name: t.experience, href: '#experience', id: 'experience' },
+    { name: t.skills, href: '#skills', id: 'skills' },
+    { name: t.projects, href: '#projects', id: 'projects' },
+    { name: t.articles, href: '#articles', id: 'articles' },
+    { name: t.contact, href: '#contact', id: 'contact' },
+  ], [t]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isScrollingRef.current) return;
+
+      const sections = navLinks.map(link => document.getElementById(link.id));
+      const scrollPosition = window.scrollY + 200;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(navLinks[i].id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [currentLang, navLinks]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      isScrollingRef.current = true;
+      setActiveSection(targetId);
+
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      const handleScrollEnd = () => {
+        isScrollingRef.current = false;
+        window.removeEventListener('scrollend', handleScrollEnd);
+      };
+
+      if ('onscrollend' in window) {
+        window.addEventListener('scrollend', handleScrollEnd, { once: true });
+      }
+
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        isScrollingRef.current = false;
+      }, 1000);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-800">
       <nav aria-label="Main Navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 text-brand-500 font-bold text-lg hover:opacity-95 transition-opacity">
+        <a href="#" onClick={(e) => handleNavClick(e, '#about')} className="flex items-center gap-2 text-brand-500 font-bold text-lg hover:opacity-95 transition-opacity">
           <Code2 className="w-6 h-6" />
           <span className="text-white">Luã Braga</span>
           <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20 text-xs hidden sm:inline-flex">
@@ -38,16 +96,24 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
         </a>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-brand-400 transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="hidden md:flex items-center gap-2">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-sm font-medium transition-all px-3 py-1.5 rounded-lg ${
+                  isActive
+                    ? 'bg-slate-900 text-brand-400'
+                    : 'text-slate-300 hover:text-brand-400 hover:bg-slate-900/50'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </div>
 
         {/* Right Side: Language Switcher & Social Icons Desktop */}
@@ -128,16 +194,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentLang, onLanguageChange })
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-2 pb-4 space-y-2">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={() => setIsOpen(false)}
-              className="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors"
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  isActive
+                    ? 'bg-slate-800 text-brand-400 border border-slate-700/60'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
           <div className="flex items-center gap-3 pt-4 border-t border-slate-800 px-3">
             <a href="https://github.com/lmourabraga" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile" className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800 hover:border-slate-700 transition-colors">
               <GithubIcon className="w-4.5 h-4.5" />

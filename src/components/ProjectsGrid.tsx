@@ -1,5 +1,5 @@
 import React from 'react';
-import { FolderGit2, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { profileData } from '../data/profile';
 import type { Language } from '../data/translations';
 import { translations } from '../data/translations';
@@ -12,7 +12,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ lang }) => {
   const t = translations[lang].projects;
 
   return (
-    <section id="projects" className="py-24 bg-slate-900/50 border-t border-slate-800">
+    <section id="projects" className="py-24 bg-slate-900/20 border-t border-slate-800/50 backdrop-blur-[2px]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -24,13 +24,10 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ lang }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {profileData.projects.map((project) => (
-            <div key={project.id} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+            <div key={project.id} className="bg-slate-900/70 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group backdrop-blur-sm">
               <div>
                 <div className="flex items-center justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors">
-                    <FolderGit2 className="w-6 h-6" />
-                  </div>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-slate-800 text-brand-400 border border-slate-700 font-medium">
+                  <span className="text-xs px-3 py-1 rounded-full bg-slate-800/80 text-brand-400 border border-slate-700/60 font-medium">
                     {project.subtitle}
                   </span>
                 </div>
@@ -46,7 +43,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ lang }) => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-0.5 rounded-md bg-slate-950 text-slate-400 border border-slate-800"
+                      className="text-xs px-2.5 py-0.5 rounded-md bg-slate-950/50 text-slate-400 border border-slate-800"
                     >
                       {tag}
                     </span>

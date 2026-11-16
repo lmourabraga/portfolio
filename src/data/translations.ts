@@ -38,6 +38,7 @@ export const translations = {
       badge: 'WordPress CMS Integration Ready',
       read: 'Read Article',
       loading: 'Loading articles from WordPress...',
+      readMore: 'Read More Articles',
     },
     contact: {
       title: "Let's Build Something Great",
@@ -57,6 +58,7 @@ export const translations = {
     footer: {
       rights: 'All rights reserved.',
       builtWith: 'Built with React, Vite, TypeScript & Tailwind CSS',
+      cloneMsg: 'You can clone this page on my GitHub',
     }
   },
   pt: {
@@ -96,6 +98,7 @@ export const translations = {
       badge: 'Pronto para Integração com WordPress CMS',
       read: 'Ler Artigo',
       loading: 'Carregando artigos do WordPress...',
+      readMore: 'Ver Todos os Artigos',
     },
     contact: {
       title: 'Vamos Construir Algo Incrível',
@@ -115,6 +118,7 @@ export const translations = {
     footer: {
       rights: 'Todos os direitos reservados.',
       builtWith: 'Construído com React, Vite, TypeScript & Tailwind CSS',
+      cloneMsg: 'You can clone this page on my GitHub',
     }
   },
   fr: {
@@ -154,6 +158,7 @@ export const translations = {
       badge: 'Prêt pour Intégration WordPress CMS',
       read: "Lire l'Article",
       loading: "Chargement des articles depuis WordPress...",
+      readMore: 'Tous les Articles',
     },
     contact: {
       title: 'Construisons Quelque Chose de Grand',
@@ -173,6 +178,7 @@ export const translations = {
     footer: {
       rights: 'Tous droits réservés.',
       builtWith: 'Construit avec React, Vite, TypeScript & Tailwind CSS',
+      cloneMsg: 'You can clone this page on my GitHub',
     }
   }
 };

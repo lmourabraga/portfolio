@@ -12,7 +12,7 @@ export const SkillsMatrix: React.FC<SkillsMatrixProps> = ({ lang }) => {
   const t = translations[lang].skills;
 
   return (
-    <section id="skills" className="py-24 bg-slate-950 border-t border-slate-800">
+    <section id="skills" className="py-24 bg-transparent border-t border-slate-800/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -24,7 +24,7 @@ export const SkillsMatrix: React.FC<SkillsMatrixProps> = ({ lang }) => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {profileData.skills.map((cat) => (
-            <div key={cat.category} className="bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-lg">
+            <div key={cat.category} className="bg-slate-900/60 border border-slate-800 rounded-2xl p-8 shadow-lg backdrop-blur-sm hover:border-slate-700 transition-all">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center text-brand-400">
                   <Cpu className="w-5 h-5" />
@@ -34,7 +34,7 @@ export const SkillsMatrix: React.FC<SkillsMatrixProps> = ({ lang }) => {
 
               <div className="grid grid-cols-2 gap-3">
                 {cat.items.map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-slate-300 bg-slate-950/50 px-3 py-2 rounded-lg border border-slate-800/80">
+                  <div key={item} className="flex items-center gap-2 text-slate-300 bg-slate-950/40 px-3 py-2 rounded-lg border border-slate-800/80">
                     <CheckCircle2 className="w-4 h-4 text-brand-500 shrink-0" />
                     <span className="text-sm font-medium">{item}</span>
                   </div>
