@@ -1,0 +1,178 @@
+export type Language = 'en' | 'pt' | 'fr';
+
+export const translations = {
+  en: {
+    nav: {
+      about: 'About',
+      experience: 'Experience',
+      skills: 'Skills',
+      projects: 'Projects',
+      articles: 'Articles',
+      contact: 'Contact',
+    },
+    hero: {
+      badge: '15 Years of Software Engineering Excellence',
+      greeting: "Hi, I'm",
+      location: 'Porto, Portugal (EU Citizen)',
+      role: 'Frontend Specialist & Full-Stack Engineer',
+      getInTouch: 'Get in Touch',
+      exploreCareer: 'Explore Career',
+    },
+    experience: {
+      title: 'Professional Experience',
+      subtitle: 'A track record of engineering scalable web applications and leading technical initiatives across Brazil and Europe.',
+    },
+    skills: {
+      title: 'Technical Expertise',
+      subtitle: 'Tools, technologies, and methodologies mastered over 15 years of professional software engineering.',
+    },
+    projects: {
+      title: 'Featured Projects & Case Studies',
+      subtitle: 'Key enterprise projects highlighting performance, scalability, and modern architecture.',
+      explore: 'Explore',
+      enterprise: 'Enterprise Solution',
+    },
+    articles: {
+      title: 'Articles & Insights',
+      subtitle: 'Technical writings on software engineering, front-end architecture, and scalable systems. Managed directly via WordPress.',
+      badge: 'WordPress CMS Integration Ready',
+      read: 'Read Article',
+      loading: 'Loading articles from WordPress...',
+    },
+    contact: {
+      title: "Let's Build Something Great",
+      subtitle: 'Have a project in mind, a leadership opportunity, or want to connect? Reach out directly.',
+      infoTitle: 'Contact Information',
+      emailMe: 'Email Me',
+      location: 'Location',
+      socialProfiles: 'Social Profiles',
+      sendMessageTitle: 'Send a Message',
+      nameLabel: 'Your Name',
+      emailLabel: 'Your Email',
+      messageLabel: 'Message',
+      sendButton: 'Send Message',
+      successTitle: 'Message Sent!',
+      successText: 'Thank you for reaching out. Luã will get back to you shortly.',
+    },
+    footer: {
+      rights: 'All rights reserved.',
+      builtWith: 'Built with React, Vite, TypeScript & Tailwind CSS',
+    }
+  },
+  pt: {
+    nav: {
+      about: 'Sobre',
+      experience: 'Experiência',
+      skills: 'Habilidades',
+      projects: 'Projetos',
+      articles: 'Artigos',
+      contact: 'Contato',
+    },
+    hero: {
+      badge: '15 Anos de Excelência em Engenharia de Software',
+      greeting: 'Olá, eu sou',
+      location: 'Porto, Portugal (Cidadão UE)',
+      role: 'Especialista Frontend & Engenheiro Full-Stack',
+      getInTouch: 'Entre em Contato',
+      exploreCareer: 'Explorar Carreira',
+    },
+    experience: {
+      title: 'Experiência Profissional',
+      subtitle: 'Um histórico de engenharia de aplicações web escaláveis e liderança de iniciativas técnicas no Brasil e na Europa.',
+    },
+    skills: {
+      title: 'Experiência Técnica',
+      subtitle: 'Ferramentas, tecnologias e metodologias dominadas ao longo de 15 anos de engenharia de software profissional.',
+    },
+    projects: {
+      title: 'Projetos & Casos de Sucesso',
+      subtitle: 'Principais projetos corporativos destacando desempenho, escalabilidade e arquitetura moderna.',
+      explore: 'Explorar',
+      enterprise: 'Solução Corporativa',
+    },
+    articles: {
+      title: 'Artigos & Insights',
+      subtitle: 'Artigos técnicos sobre engenharia de software, arquitetura front-end e sistemas escaláveis. Gerenciados via WordPress.',
+      badge: 'Pronto para Integração com WordPress CMS',
+      read: 'Ler Artigo',
+      loading: 'Carregando artigos do WordPress...',
+    },
+    contact: {
+      title: 'Vamos Construir Algo Incrível',
+      subtitle: 'Tem um projeto em mente, uma oportunidade de liderança ou quer se conectar? Entre em contato diretamente.',
+      infoTitle: 'Informações de Contato',
+      emailMe: 'Envie um E-mail',
+      location: 'Localização',
+      socialProfiles: 'Perfis Sociais',
+      sendMessageTitle: 'Enviar uma Mensagem',
+      nameLabel: 'Seu Nome',
+      emailLabel: 'Seu E-mail',
+      messageLabel: 'Mensagem',
+      sendButton: 'Enviar Mensagem',
+      successTitle: 'Mensagem Enviada!',
+      successText: 'Obrigado pelo contato. O Luã retornará em breve.',
+    },
+    footer: {
+      rights: 'Todos os direitos reservados.',
+      builtWith: 'Construído com React, Vite, TypeScript & Tailwind CSS',
+    }
+  },
+  fr: {
+    nav: {
+      about: 'À propos',
+      experience: 'Expérience',
+      skills: 'Compétences',
+      projects: 'Projets',
+      articles: 'Articles',
+      contact: 'Contact',
+    },
+    hero: {
+      badge: "15 Ans d'Excellence en Ingénierie Logicielle",
+      greeting: 'Bonjour, je suis',
+      location: 'Porto, Portugal (Citoyen UE)',
+      role: 'Spécialiste Frontend & Ingénieur Full-Stack',
+      getInTouch: 'Contactez-moi',
+      exploreCareer: 'Explorer le Parcours',
+    },
+    experience: {
+      title: 'Expérience Professionnelle',
+      subtitle: "Un historique de conception d'applications web évolutives et de direction d'initiatives techniques au Brésil et en Europe.",
+    },
+    skills: {
+      title: 'Expertise Technique',
+      subtitle: "Outils, technologies et méthodologies maîtrisés au cours de 15 années d'ingénierie logicielle professionnelle.",
+    },
+    projects: {
+      title: 'Projets & Études de Cas',
+      subtitle: "Projets d'entreprise clés mettant en valeur les performances, l'évolutivité et l'architecture moderne.",
+      explore: 'Explorer',
+      enterprise: "Solution d'Entreprise",
+    },
+    articles: {
+      title: 'Articles & Analyses',
+      subtitle: "Écrits techniques sur l'ingénierie logicielle, l'architecture front-end et les systèmes évolutifs. Gérés via WordPress.",
+      badge: 'Prêt pour Intégration WordPress CMS',
+      read: "Lire l'Article",
+      loading: "Chargement des articles depuis WordPress...",
+    },
+    contact: {
+      title: 'Construisons Quelque Chose de Grand',
+      subtitle: "Vous avez un projet en tête, une opportunité de leadership ou souhaitez échanger ? Contactez-moi directement.",
+      infoTitle: 'Coordonnées',
+      emailMe: 'Envoyer un Email',
+      location: 'Localisation',
+      socialProfiles: 'Profils Sociaux',
+      sendMessageTitle: 'Envoyer un Message',
+      nameLabel: 'Votre Nom',
+      emailLabel: 'Votre Email',
+      messageLabel: 'Message',
+      sendButton: 'Envoyer le Message',
+      successTitle: 'Message Envoyé !',
+      successText: "Merci pour votre message. Luã vous répondra dans les plus brefs délais.",
+    },
+    footer: {
+      rights: 'Tous droits réservés.',
+      builtWith: 'Construit avec React, Vite, TypeScript & Tailwind CSS',
+    }
+  }
+};
