@@ -24,7 +24,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
 
         <div className="relative pl-24 sm:pl-32">
           {/* Centralized Timeline Line passing through the exact center of 80px wide badges (80/2 = 40px) */}
-          <div className="absolute left-[40px] top-4 bottom-4 w-px bg-slate-800" />
+          <div className="absolute left-[40px] top-4 bottom-0 w-px bg-slate-800" />
 
           <div className="space-y-12">
             {profileData.experiences.map((exp, index) => {

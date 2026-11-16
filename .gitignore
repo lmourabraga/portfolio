@@ -12,6 +12,10 @@ dist
 dist-ssr
 *.local
 
+# WordPress Theme and Local Documentation
+wp-portfolio-theme/
+WORDPRESS_MIGRATION_GUIDE.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
