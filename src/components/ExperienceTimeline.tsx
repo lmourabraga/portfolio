@@ -22,23 +22,21 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
           </p>
         </div>
 
-        <div className="relative pl-16 sm:pl-28">
+        <div className="relative pl-14 sm:pl-24">
           {/* Centralized Timeline Line */}
-          <div className="absolute left-[32px] sm:left-[56px] top-4 bottom-4 w-px bg-slate-800" />
+          <div className="absolute left-[28px] sm:left-[48px] top-4 bottom-4 w-px bg-slate-800" />
 
           <div className="space-y-12">
             {profileData.experiences.map((exp, index) => {
               const startYear = exp.period.match(/\d{4}/)?.[0] || exp.period;
               return (
                 <div key={exp.id} className="relative group">
-                  {/* Timeline Year Badge & Pulse on Top */}
-                  <div className="absolute -left-16 sm:-left-28 top-6 w-16 sm:w-24 py-2 rounded-xl bg-slate-950 border border-slate-700 text-xs font-bold text-brand-400 flex flex-col items-center justify-center gap-1 shadow-xl group-hover:border-brand-500 transition-colors z-10">
-                    {index === 0 && (
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                      </span>
-                    )}
+                  {/* Timeline Year Badge with pulsing border for current role */}
+                  <div className={`absolute -left-14 sm:-left-24 top-6 px-3 py-1.5 rounded-lg bg-slate-950 border text-xs font-bold flex items-center justify-center shadow-xl transition-colors z-10 ${
+                    index === 0 
+                      ? 'border-emerald-500 text-emerald-300 animate-pulse shadow-emerald-500/20' 
+                      : 'border-slate-700 text-brand-400 group-hover:border-brand-500'
+                  }`}>
                     <span>{startYear}</span>
                   </div>
 
