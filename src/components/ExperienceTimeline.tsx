@@ -28,7 +28,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({ lang }) 
             return (
               <div key={exp.id} className="relative pl-8 sm:pl-10 group">
                 {/* Timeline Year Badge & Pulse for Current Position */}
-                <div className="absolute -left-[45px] sm:-left-[49px] top-1.5 px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-700 text-xs font-bold text-brand-400 flex items-center gap-1.5 shadow-xl group-hover:border-brand-500 transition-colors">
+                <div className="absolute -left-[45px] sm:-left-[49px] -top-3 px-2.5 py-1 rounded-lg bg-slate-950 border border-slate-700 text-xs font-bold text-brand-400 flex items-center gap-1.5 shadow-xl group-hover:border-brand-500 transition-colors">
                   {index === 0 && (
                     <span className="relative flex h-2 w-2">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>

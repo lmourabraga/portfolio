@@ -140,7 +140,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ lang }) => {
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all shadow-lg shadow-brand-600/20 border border-brand-400/60 hover:border-brand-300 hover:scale-[1.01] cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-brand-600 hover:bg-brand-500/90 text-white font-medium transition-colors border border-brand-500/40 hover:border-brand-400 cursor-pointer"
                 >
                   <span>{t.sendButton}</span>
                   <Send className="w-4 h-4" />

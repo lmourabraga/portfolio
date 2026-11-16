@@ -26,7 +26,7 @@ export const ProjectsGrid: React.FC<ProjectsGridProps> = ({ lang }) => {
           {profileData.projects.map((project) => (
             <div key={project.id} className="bg-slate-900/70 border border-slate-800 rounded-2xl p-8 flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group backdrop-blur-sm">
               <div>
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-end mb-6">
                   <span className="text-xs px-3 py-1 rounded-full bg-slate-800/80 text-brand-400 border border-slate-700/60 font-medium">
                     {project.subtitle}
                   </span>

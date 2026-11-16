@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ lang }) => {
           </div>
 
           <h1 className="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 mt-4">
-            {t.greeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-200">{profileData.name}</span>
+            {t.greeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-brand-400 to-white">{profileData.name}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed">
